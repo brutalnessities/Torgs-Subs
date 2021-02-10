@@ -1,8 +1,8 @@
 <head>
 </head>
-<button id="bouncing" class="btn btn-primary">Click Me</button>
+<button id="button" class="btn btn-primary">Click Me</button>
 <script>
-var button = document.querySelector("button");
+var button = document.getElementById("button");
 
 button.addEventListener("click", function() {
   var changeTop = (Math.random() * ($(window).height() - $("button").height()));
