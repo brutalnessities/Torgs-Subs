@@ -1,7 +1,14 @@
 <head>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<h1>Hello World!</h1>
-<a href="https://brutalnessities.github.io/login-page/">Login-page</a>
-<a href="https://brutalnessities.github.io/interaction/">Interact with me</a>
-</body>
+<button id="bouncing" class="btn btn-primary">Click Me</button>
+<script>
+var button = document.querySelector("button");
+
+button.addEventListener("click", function() {
+  var changeTop = (Math.random() * ($(window).height() - $("button").height()));
+  var changeLeft = (Math.random() * ($(window).width() - $("button").width()));
+  $("button").css("margin-top", changeTop + "px");
+  $("button").css("margin-left", changeLeft + "px");
+});
+</script>
