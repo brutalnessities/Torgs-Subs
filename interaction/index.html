@@ -13,11 +13,18 @@ body {
   background-size: cover;
 }
 .container {
-	justify-center;
+	
     position: fixed;
 	top: 40%;
     left: 40%;
 }
+.finished {
+	
+    position: fixed;
+	top: 25%;
+    left: 25%;
+}
+
 
 </style>
 </head>
@@ -27,11 +34,17 @@ body {
 	<div id="counter" class="text-7xl font-bold"></div>
 
 	<button onclick="startCountdown()" x-on:click="start = false" x-show="start" class="hover:text-green-600 text-7xl font-bold">Ready?</button>
-	<button onclick="add()" x-show="!start" class="p-2 rounded-md bg-red-300 text-white hover:bg-green-600 text-xl font-bold">Postpone?</button>
-	<button onclick="sub()" x-show="!start" class="p-2 rounded-md bg-green-300 text-white hover:bg-red-600 text-xl font-bold">Advance?</button>
+	<button onclick="add()" x-show="!start" class="p-2 rounded-md bg-green-300 text-white hover:bg-green-600 text-xl font-bold">Postpone?</button>
+	<button onclick="sub()" x-show="!start" class="p-2 rounded-md bg-red-300 text-white hover:bg-red-600 text-xl font-bold">Advance?</button>
+	
 </div>
 
 <div id="finish" class="text-xs text-gray-200"></div>
+
+<div class="finished">
+	<img x-data="{ show: false }" x-show="show" x-init="setTimeout(() => show = true, 120000)" src="https://i.gifer.com/fzi4.gif">
+</div>
+
 
 <script>
 var start = false;
