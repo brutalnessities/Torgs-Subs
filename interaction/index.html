@@ -30,6 +30,7 @@ body {
 </head>
 
 <body>
+
 <div class="container" x-data="{start: true}">
 	<div id="counter" class="text-7xl font-bold"></div>
 
@@ -39,17 +40,17 @@ body {
 	
 </div>
 
-<div id="finish" class="text-xs text-gray-200"></div>
+<div id="finish" class="text-xs text-gray-300"></div>
 
 <div class="finished">
-	<img x-data="{ show: false }" x-show="show" x-init="setTimeout(() => show = true, 60000)" src="https://i.gifer.com/fzi4.gif">
+	<img x-data="{ show: false }" x-show="show" x-init="setTimeout(() => show = true, 120000)" src="https://i.gifer.com/fzi4.gif">
 </div>
 
 
 <script>
 var start = false;
 var counter = 3000;
-var finish = 6000;
+var finish = 12000;
 var boom;
 var win;
 var won = false;
@@ -81,8 +82,8 @@ function startCountdown() {
 		}
 	}
 	
-	if (finish == 0){
-		if (!won){
+	if (finish <= 6000){
+		if (!won && !boomed){
 			win.play();
 			won = true;
 		}
