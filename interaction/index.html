@@ -1,13 +1,85 @@
+<!DOCTYPE html>
+<!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_countdown/
+-->
 <head>
-</head>
-<button id="button" class="btn btn-primary">Click Me</button>
-<script>
-var button = document.getElementById("button");
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-button.addEventListener("click", function() {
-  var changeTop = (Math.random() * ($(window).height() - $("button").height()));
-  var changeLeft = (Math.random() * ($(window).width() - $("button").width()));
-  $("button").css("margin-top", changeTop + "px");
-  $("button").css("margin-left", changeLeft + "px");
-});
+<style>
+body {
+  background-image: url('https://cutewallpaper.org/21/white-background-gif/Dribbble-hexgif-by-Tim-Hykes.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+.container {
+	justify-center;
+    position: fixed;
+	top: 40%;
+    left: 40%;
+}
+
+</style>
+</head>
+
+<body>
+<div class="container" x-data="{start: true}">
+	<div id="counter" class="text-7xl font-bold"></div>
+
+	<button onclick="startCountdown()" x-on:click="start = false" x-show="start" class="hover:text-green-600 text-7xl font-bold">Ready?</button>
+	<button onclick="add()" x-show="!start" class="p-2 rounded-md bg-red-300 text-white hover:bg-green-600 text-xl font-bold">Postpone?</button>
+	<button onclick="sub()" x-show="!start" class="p-2 rounded-md bg-green-300 text-white hover:bg-red-600 text-xl font-bold">Advance?</button>
+</div>
+
+<div id="finish" class="text-xs"></div>
+
+<script>
+var start = false;
+var counter = 6000;
+var finish = 120;
+var boom;
+var win;
+var won = false;
+var boomed = false;
+
+function add(){counter+=500};
+function sub(){counter-=500};
+
+function startCountdown() {
+  
+  boom = new Audio("wtf_boom.mp3");
+  win = new Audio("win.mp3");
+  setInterval(function(){
+  	counter -= 1;
+	finish -= 1;
+	
+  	var mins = Math.floor(counter/6000) % 60;
+  	var secs = Math.floor(counter/100) % 60;
+    var mils = counter % 100;
+	
+	if (counter <= 0){
+		counter = 0;
+		mins = 0;
+		secs = 0;
+		mils = 0;
+		if (!boomed && !won){
+			boom.play();
+			boomed = true;
+		}
+	}
+	
+	if (finish == 0){
+		if (!won){
+			win.play();
+			won = true;
+		}
+	}	
+	
+    document.getElementById("counter").innerHTML = mins + ":" + secs + ":" + mils;
+	document.getElementById("finish").innerHTML = finish;
+  }, 10);
+}
 </script>
+
+</body>
+</html>
