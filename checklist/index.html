@@ -1,0 +1,562 @@
+<!DOCTYPE html> 
+
+<html>
+<head>
+	<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
+
+
+	<style>
+
+		.step {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			border: 1px solid green; 
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-bottom: -1px;
+		}
+		
+		.step_done {
+			display: flex;
+			background: lightgray;
+			align-items: center;
+			border: 1px solid green; 
+			margin-left: 30%;
+			margin-right: 30%;
+			margin-bottom: -1px;
+			text-decoration: line-through;
+		}
+				
+		.group_btn {
+			display: flex;
+			align-items: center;
+			height: 2em;
+			border: 3px solid green; 
+			margin-top: .5em;
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-bottom: -1px;
+			min-width: 50%;
+			font-weight: bold;
+			color: darkblue;
+			text-indent: 2em;
+		}
+		
+		.group_btn_done {
+			background: lightgreen;
+			display: flex;
+			align-items: center;
+			height: 2em;
+			border: 3px solid green; 
+			margin-top: .5em;
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-bottom: -1px;
+			min-width: 50%;
+			font-weight: bold;
+			color: darkblue;
+			text-indent: 2em;
+		}
+		
+		.note {
+			color: red;
+			padding-left: 3%
+		}
+		
+		#checkbox {
+			margin-left: 3%;
+		}
+		
+		#checkbox_text {
+			padding-left: 6%;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<div style="height: 1em"></div>
+<div class="text-3xl text-center font-bold">C-172 CESSNA SKYHAWK</div>
+<div class="text-xl text-center font-bold">Quick Reference Normal Operating Checklist</div>
+<div class="text-xs text-center">For use only with an approved Cessna checklist</div>
+<div style="height: 1em"></div>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false,false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4] && steps[5] && steps[6] && steps[7] && steps[8] && steps[9]}">BEFORE ENGINE START</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Complete: Preflight</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Stow: Fuel Drain Tool</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Complete: Passenger briefing</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Adjust and Lock: Seats</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">On: Seat Belt and Harness</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[5]" x-bind:class="{'step_done': steps[5]}">
+			<input type="checkbox" id="checkbox" x-model="steps[5] = steps[5]">
+			<li id="checkbox_text">Set: Brakes</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[6]" x-bind:class="{'step_done': steps[6]}">
+			<input type="checkbox" id="checkbox" x-model="steps[6] = steps[6]">
+			<li id="checkbox_text">Off: Avionics Master</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[7]" x-bind:class="{'step_done': steps[7]}">
+			<input type="checkbox" id="checkbox" x-model="steps[7] = steps[7]">
+			<li id="checkbox_text">In: Circuit Breakers</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[8]" x-bind:class="{'step_done': steps[8]}">
+			<input type="checkbox" id="checkbox" x-model="steps[8] = steps[8]">
+			<li id="checkbox_text">On Both: Fuel Selector</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[9]" x-bind:class="{'step_done': steps[9]}">
+			<input type="checkbox" id="checkbox" x-model="steps[9] = steps[9]">
+			<li id="checkbox_text">On: Beacon Light</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4] && steps[5] && steps[6] && steps[7] && steps[8]}">ENGINE START</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Mixture: Rich</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Carburetor Heat: Cold</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Prime: 2-6 strokes if cold</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Master: On</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Throttle: Open 1/4 inch</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[5]" x-bind:class="{'step_done': steps[5]}">
+			<input type="checkbox" id="checkbox" x-model="steps[5] = steps[5]">
+			<li id="checkbox_text">Propeller Area: Clear</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[6]" x-bind:class="{'step_done': steps[6]}">
+			<input type="checkbox" id="checkbox" x-model="steps[6] = steps[6]">
+			<li id="checkbox_text">Ignition: To Start</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[7]" x-bind:class="{'step_done': steps[7]}">
+			<input type="checkbox" id="checkbox" x-model="steps[7] = steps[7]">
+			<li id="checkbox_text">Engine RPM: 800</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[8]" x-bind:class="{'step_done': steps[8]}">
+			<input type="checkbox" id="checkbox" x-model="steps[8] = steps[8]">
+			<li id="checkbox_text">Oil Pressure: In Green</li>
+			<div style="width: 100%"></div>
+			<p class="note">Note: Oil pressure should be in green arc within 30 seconds summer, 60 seconds winter.</p>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4] && steps[5] && steps[6]}">BEFORE TAXI</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">flaps: Up</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Avionics Master: On</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">NAV lights: (Sunset/sunrise) ON</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Transponder: Select ALT for taxiing</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">ATIS: Listen and Copy</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[5]" x-bind:class="{'step_done': steps[5]}">
+			<input type="checkbox" id="checkbox" x-model="steps[5] = steps[5]">
+			<li id="checkbox_text">Brakes: Release and Test</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[6]" x-bind:class="{'step_done': steps[6]}">
+			<input type="checkbox" id="checkbox" x-model="steps[6] = steps[6]">
+			<li id="checkbox_text">Communication: GRD or CTAF</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4] && steps[5] && steps[6] && steps[7] && steps[8] && steps[9] && steps[10] && steps[11] && steps[12] && steps[13] && steps[14] && steps[15] && steps[16] && steps[17] && steps[18]}">BEFORE TAKEOFF (RUNUP)</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Brakes: Set</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Flight Instruments: Set</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Engine Instruments: Set</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Avionics: Set properly for Flight</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Mixture: Rich below 3000'</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[5]" x-bind:class="{'step_done': steps[5]}">
+			<input type="checkbox" id="checkbox" x-model="steps[5] = steps[5]">
+			<li id="checkbox_text">Throttle: 1700 RPM</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[6]" x-bind:class="{'step_done': steps[6]}">
+			<input type="checkbox" id="checkbox" x-model="steps[6] = steps[6]">
+			<li id="checkbox_text">Magnetos: Check Lt and Rt</li>
+			<div style="width: 100%"></div>
+			<p class="note">NOTE: Max drop during mag check is 125 RPM, within 50 RPM of each other.</p>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[7]" x-bind:class="{'step_done': steps[7]}">
+			<input type="checkbox" id="checkbox" x-model="steps[7] = steps[7]">
+			<li id="checkbox_text">Carburetor Heat: On, check operation, then Off</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[8]" x-bind:class="{'step_done': steps[8]}">
+			<input type="checkbox" id="checkbox" x-model="steps[8] = steps[8]">
+			<li id="checkbox_text">Engine Instruments: In Green</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[9]" x-bind:class="{'step_done': steps[9]}">
+			<input type="checkbox" id="checkbox" x-model="steps[9] = steps[9]">
+			<li id="checkbox_text">Ammeter: Check</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[10]" x-bind:class="{'step_done': steps[10]}">
+			<input type="checkbox" id="checkbox" x-model="steps[10] = steps[10]">
+			<li id="checkbox_text">Suction Gauge: Green Arc</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[11]" x-bind:class="{'step_done': steps[11]}">
+			<input type="checkbox" id="checkbox" x-model="steps[11] = steps[11]">
+			<li id="checkbox_text">Throttle: 800-1000 RPM</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[12]" x-bind:class="{'step_done': steps[12]}">
+			<input type="checkbox" id="checkbox" x-model="steps[12] = steps[12]">
+			<li id="checkbox_text">Throttle friction lock: Adjust</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[13]" x-bind:class="{'step_done': steps[13]}">
+			<input type="checkbox" id="checkbox" x-model="steps[13] = steps[13]">
+			<li id="checkbox_text">Flight Controls: Free and Correct</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[14]" x-bind:class="{'step_done': steps[14]}">
+			<input type="checkbox" id="checkbox" x-model="steps[14] = steps[14]">
+			<li id="checkbox_text">Doors and Windows: Secure</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[15]" x-bind:class="{'step_done': steps[15]}">
+			<input type="checkbox" id="checkbox" x-model="steps[15] = steps[15]">
+			<li id="checkbox_text">Transponder: Proper Code and select ALT</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[16]" x-bind:class="{'step_done': steps[16]}">
+			<input type="checkbox" id="checkbox" x-model="steps[16] = steps[16]">
+			<li id="checkbox_text">Lights: Landing Light As Req., NAV (sunset to sunrise)</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[17]" x-bind:class="{'step_done': steps[17]}">
+			<input type="checkbox" id="checkbox" x-model="steps[17] = steps[17]">
+			<li id="checkbox_text">Pilot Heat: As required</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[18]" x-bind:class="{'step_done': steps[18]}">
+			<input type="checkbox" id="checkbox" x-model="steps[18] = steps[18]">
+			<li id="checkbox_text">Brakes: Release</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4]}">AT TAKEOFF</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Wing Flaps: 0&#176; Normal, 10&#176; Soft field</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Throttle: Set Full Power</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Mixture RICH, lean above 3000'</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Airspeed: Rotate at 55 Knots</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Climb Speed: Vy 73 Knots, Vx 59 Knots</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4]}">CLIMB</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Throttle: Full Power</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Mixture: Rich, Lean above 3000'</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Trim: Set for Climb</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Airspeed: Vx 59 Knots, Vy 73 Knots</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Cruise Climb: 80 Knots</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3]}">CRUISE</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Throttle: 2200-2450 RPM</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Trim: Set</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Mixture: Lean above 3000'</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Landing Light: Off</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4] && steps[5] && steps[6] && steps[7]}">DESCENT</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">ATIS: Listen and Copy</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Altimeter: Set</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Throttle: Set as required</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Carburetor Heat: As required</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Trim: As required</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[5]" x-bind:class="{'step_done': steps[5]}">
+			<input type="checkbox" id="checkbox" x-model="steps[5] = steps[5]">
+			<li id="checkbox_text">Mixture: Rich as required</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[6]" x-bind:class="{'step_done': steps[6]}">
+			<input type="checkbox" id="checkbox" x-model="steps[6] = steps[6]">
+			<li id="checkbox_text">Fuel Selector: On Both</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[7]" x-bind:class="{'step_done': steps[7]}">
+			<input type="checkbox" id="checkbox" x-model="steps[7] = steps[7]">
+			<li id="checkbox_text">Avionics: Set</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4]}">BEFORE LANDING</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Seats, seat belts: Secure</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Fuel Selector: Both</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Mixture: Rich</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Carburetor Heat: On as required</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Landing Light: As required</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4]}">GO AROUND</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Throttle: <b>FULL POWER</b></li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Carburetor Heat: <b>OFF</b></li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Flaps: <b>IMMEDIATELY 20&#176;</b></li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Climb Speed: 55 Knots</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Flaps up once obstacles CLEAR</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4]}">LANDING</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Flaps 10&#176;: Below 110 Knots</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Flaps Full: Below 85 Knots</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Normal App: 65 Knots</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Touchdown: On mainwheels first, lower nose gently</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Braking: Minimum required</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3]}">AFTER LANDING</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Flaps: Up</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Carburetor Heat: Off</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Landing Light: Off</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Strobe Lights: Off</li>
+		</div>
+	</div>		
+</ol>
+
+<ol>
+	<div x-data="{checks: false, steps: [false,false,false,false,false,false,false,false]}">
+		<button class="group_btn" x-on:click="checks = !checks" x-bind:class="{'group_btn_done': steps[0] && steps[1] && steps[2] && steps[3] && steps[4] && steps[5] && steps[6] && steps[7]}">SHUTDOWN</button>
+		
+        <div x-show="checks" class="step" x-model="steps[0]" x-bind:class="{'step_done': steps[0]}">
+			<input type="checkbox" id="checkbox" x-model="steps[0] = steps[0]">
+			<li id="checkbox_text">Avionics Master: Off</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[1]" x-bind:class="{'step_done': steps[1]}">
+			<input type="checkbox" id="checkbox" x-model="steps[1] = steps[1]">
+			<li id="checkbox_text">Throttle: 800-1000 RPM</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[2]" x-bind:class="{'step_done': steps[2]}">
+			<input type="checkbox" id="checkbox" x-model="steps[2] = steps[2]">
+			<li id="checkbox_text">Mixture: Idle Cut-Off</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[3]" x-bind:class="{'step_done': steps[3]}">
+			<input type="checkbox" id="checkbox" x-model="steps[3] = steps[3]">
+			<li id="checkbox_text">Magnetos: Off - Key on Dash</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[4]" x-bind:class="{'step_done': steps[4]}">
+			<input type="checkbox" id="checkbox" x-model="steps[4] = steps[4]">
+			<li id="checkbox_text">Master Switch: Off</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[5]" x-bind:class="{'step_done': steps[5]}">
+			<input type="checkbox" id="checkbox" x-model="steps[5] = steps[5]">
+			<li id="checkbox_text">Control Wheel Lock: Install</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[6]" x-bind:class="{'step_done': steps[6]}">
+			<input type="checkbox" id="checkbox" x-model="steps[6] = steps[6]">
+			<li id="checkbox_text">Record Hobbs, Tach on invoice</li>
+		</div>
+		<div x-show="checks" class="step" x-model="steps[7]" x-bind:class="{'step_done': steps[7]}">
+			<input type="checkbox" id="checkbox" x-model="steps[7] = steps[7]">
+			<li id="checkbox_text">Tie Downs: Install</li>
+		</div>
+	</div>		
+</ol>
+<div class="text-xl text-center font-bold text-red-500 mt-4 mb-8">REMEMBER TO CLOSE YOUR VFR FLIGHT PLAN !</div>
+
+
+
+</body>
+</html>
