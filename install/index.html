@@ -1,73 +1,52 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Lead Motors</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css" media="all"/>
-    <link rel="stylesheet" type="text/css" href="//demo.webbuy.com/assets/css/dist/main.css" media="all"/>
-    <!-- In the future this should not be here.  The link will be applied by the JS -->
-
-    <script src="https://use.typekit.net/ifg1pid.js"></script>
-    <script>try { Typekit.load({async: true}); } catch (e) { }</script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="//demo.webbuy.com/assets/js/dist/main.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.modal').modal();
-        });
-    </script>
-</head>
-<body>
-
-<div class="row">
-    <div class="col s12 m12 l12">
-        <header class="row">
-            <div class="col s12 m12 l2">
-                <a href="/" title="Home"><img src="//demo.webbuy.com/assets/img/logo.png" class="logo"/></a>
-            </div>
-            <div class="col s12 m12 l8">
-                <br><br>
-                <div>
-                    <span>123 South Main Street West</span><br>
-                    <span>Billings, Montana 59101</span><br>
-                    <h2>Providing superior service and lead generation!</h2>
-                </div>
-            </div>
-            <div class="col s12 m12 l2">
-                <br><br>
-                <span>Sales: (406) 555-1234</span><br>
-                <span>Service: (406) 555-1234</span><br>
-                <span>Parts: (406) 555-1234</span><br>
-            </div>
-        </header>
-    </div>
-    <nav>
-        <ul class="container">
-            <li class="home"><a href="/" title="Home"><i class="fa fa-home"></i></a></li>
-            <li><a href="/srp/new" title="New Vehicles">New Vehicles</a></li>
-            <li><a href="/srp/used" title="Used Vehicles">Used Vehicles</a></li>
-<!--            <li><a href="/srp-cdk/new" title="CDK">CDK Vehicles</a></li>-->
-<!--            <li><a href="/srp-custom/new" title="Vehicles Custom">Custom Vehicles</a></li>-->
-            <li><a href="/group-site" title="Group Site Inventory">Group Site Inventory</a></li>
-            <li><a href="/landing" title="Buy Online">Buy Online</a></li>
-            <li><a href="/banner" title="Banners">Banner</a></li>
-            <li><a href="/test#carvaluator" title="Carvaluator">Open Carvaluator</a></li>
-            <!--<li><a href="/test#fi" title="F & I">Open F & I</a></li>-->
-        </ul>
-    </nav>
-    <div class="clearfix"></div><main class="home">
-    <div class="container">
-        <h1>Welcome to the WebBuy Application DEMO!</h1>
-        <p>Choose a link from the navigation to begin.</p>
-    </div>
-</main>
-        </div>
-    </div>
-   <script src="//cdn.webbuy.com/webbuy.min.js" id="wbdata" data-account="7cYv3VYCFxv7zMX8qPJ3W5eB"></script>
-</body>
+	<style>
+	
+		.header {
+			position: fixed;
+			height: 13%;
+			width: 100%;
+			background: aliceblue;
+		}
+		.wrapper {
+			position: absolute;
+			height: 150%;
+			left: 5%;
+			min-width: 90%;
+			right: 5%;
+			border: solid 1px black;
+			z-index: -1;
+		}
+		.toolbar {
+			margin-top: 9%;
+			position: fixed;
+			height: relative;
+			left: 10%;
+			min-width: 80%;
+			right: 10%;
+			border: solid 1px black;
+		}
+		.btn {
+			border: solid 1px red;
+			margin: 1px -3px 1px -2px;
+			min-width:24.25%;
+		}	
+		</style>
+	</head>
+	<body style="margin: 0;">
+	<div class="header" label="header">I want this to be the logo/banner</div>
+		<div class="toolbar" label="toolbar">
+			<button class="btn" style="margin-left: 1%;">MENU</button>
+			<button class="btn">ORDER ONLINE</button>
+			<button class="btn">LOCATIONS</button>
+			<button class="btn">CART</button>
+	</div>
+	<div class="wrapper" style="background: beige;">
+	</div>
+	</body>
 </html>
