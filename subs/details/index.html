@@ -14,34 +14,75 @@
 			height: 13%;
 			width: 100%;
 			background: darkgrey;
+			opacity: 50%;
 		}
 		.wrapper {
 			position: absolute;
-			height: 150%;
 			left: 5%;
+			top: 13%;
 			min-width: 90%;
 			right: 5%;
 			border: solid 1px black;
 			z-index: -1;
 			background: cadetblue;
 		}
+		
+		
+		.filter_header {
+			font-weight: bolder; 
+			font-size: larger;
+			position: absolute;
+			top: 0;
+			left: 0.2em;
+		}
+		.filter {
+			position: fixed;
+			height: 20em;
+			top: 10em;
+			left: inherit;
+			min-width: 14em;
+			border: solid 1px black;
+			padding: 2em 1em 1em 1em;
+		}
+		
+		
 		.toolbar {
+			display: grid;
+			grid-template-columns: auto auto auto auto;
 			position: absolute;
 			bottom: 0;
-			height: relative;
+			height: 3em;
 			left: 10%;
 			min-width: 80%;
 			right: 10%;
 			border: solid 1px black;
 		}
-		.btn {
+		.toolbar_btn {
 			border: solid 1px red;
-			margin: 1px -3px 1px -2px;
-			min-width:24.25%;
 		}
-		.btn:hover {
+		.toolbar_btn:hover {
 			background: lightgreen;
 		}
+		
+		
+		.grid-header {
+			position: absolute;
+			font-size: xxx-large;
+			font-weight: 900;
+			margin-top: -0.75em;
+		}
+		.grid-container {
+			margin: 2.5em 5em 0 17em;
+			display: grid;
+			border: solid 1px black;
+			grid-template-columns: auto auto auto;
+		}
+		.grid-item {
+			border: solid 1px black;
+			margin: 2em;
+			height: 15em;
+		}
+		
 		</style>
 	</head>
 	<body style="margin: 0;">
@@ -49,13 +90,91 @@
 		<p class="self-center">MENU</p>
 		<img src="logo.png" class="mt-3 ml-3 h-3/5">
 		<div class="toolbar" label="toolbar">
-			<button class="btn" style="margin-left: 1%;">MENU</button>
-			<button class="btn">ORDER ONLINE</button>
-			<button class="btn">LOCATIONS</button>
-			<button class="btn">CART</button>
+			<button class="toolbar_btn">MENU</button>
+			<button class="toolbar_btn">ORDER ONLINE</button>
+			<button class="toolbar_btn">LOCATIONS</button>
+			<button class="toolbar_btn">CART</button>
 		</div>
 	</div>
 	<div class="wrapper">
+		<div class="filter" x-data="{vegitarian:false,vegan:false,pescetarian:false,Kosher:false,carnivorous:false,gluten:false}">
+
+			<p class="filter_header">Dietary Restrictions</p>
+			<div x-model="filter[0]0">
+				<input type="checkbox" id="checkbox" x-model="filter[0] = filter[0]">Vegitarian</input>
+			</div>
+			<div x-model="filter[1]">
+				<input type="checkbox" id="checkbox" x-model="filter[1] = filter[1]">Vegan</input>
+			</div>
+			<div x-model="filter[2]">
+				<input type="checkbox" id="checkbox" x-model="filter[2] = filter[2]">Pescetarian</input>
+			</div>
+			<div x-model="filter[3]">
+				<input type="checkbox" id="checkbox" x-model="filter[3] = filter[3]">Kosher</input>
+			</div>
+			<div x-model="filter[4]">
+				<input type="checkbox" id="checkbox" x-model="filter[4] = filter[4]">Carnivorous</input>
+			</div>
+			<div x-model="filter[5]">
+				<input type="checkbox" id="checkbox" x-model="filter[5] = filter[5]">Gluten Free</input>
+			</div>
+			
+		</div>
+		<div class="grid-container">
+			<p class="grid-header">Submarines</p>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">1</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">2</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">3</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">4</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">5</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">6</div>
+			</a>
+		</div>
+		<div class="grid-container">
+			<p class="grid-header">Hot Ones</p>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">1</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">2</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">3</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">4</div>
+			</a>
+		</div>
+		<div class="grid-container">
+			<p class="grid-header">Sides</p>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">1</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">2</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">3</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">4</div>
+			</a>
+			<a href="https://brutalnessities.github.io/subs/details/">
+				<div class="grid-item">5</div>
+			</a>
+		</div>
+		<div style="height:10em;">
 	</div>
 	</body>
 </html>
