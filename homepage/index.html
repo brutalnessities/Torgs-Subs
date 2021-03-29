@@ -23,8 +23,7 @@
 			min-width: 90%;
 			right: 5%;
 			border: solid 1px black;
-			z-index: -1;
-			background: cadetblue;
+			height: 87%;
 		}
 		
 		
@@ -59,8 +58,10 @@
 		}
 		.toolbar_btn {
 			border: solid 1px red;
-			text-align: center;
-			padding-top: .7em;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			
 		}
 		.toolbar_btn:hover {
 			background: lightgreen;
@@ -85,9 +86,11 @@
 			height: 15em;
 		}
 		
+		
+		
 		</style>
 	</head>
-	<body style="margin: 0;">
+	<body style="margin: 0; overflow: hidden;">
 	<div class="header" label="header">
 		<p class="self-center">MENU</p>
 		<a href="https://brutalnessities.github.io/homepage/">
@@ -101,9 +104,13 @@
 			<a class="toolbar_btn" href="https://brutalnessities.github.io/homepage/cart">CART</a>
 		</div>
 	</div>
+	<img src="image3.png">
 	<div class="wrapper">
-		
-		<div style="height:10em;">
+		<p style="color: white; font-size: 4em; font-weight: 900;">BREAKFAST LIKE YOU'VE NEVER HAD BEFORE...</P>
+		<p style="color: white; font-size: 4em; font-weight: 900; position: absolute; bottom:0; right:0;">Only at Torgs Footlongs</P>
+		<a>
+			<button class="toolbar_btn">Check it out &#128521;<button>
+		</a>	
 	</div>
 	</body>
 </html>
