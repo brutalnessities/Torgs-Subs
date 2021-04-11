@@ -69,20 +69,44 @@
 		
 		.grid-header {
 			position: absolute;
-			font-size: xxx-large;
-			font-weight: 900;
-			margin-top: -0.75em;
+			font-size: xx-large;
+			font-weight: 800;
+			color: white;
+			-webkit-text-stroke: 2px black;
 		}
 		.grid-container {
-			margin: 2.5em 5em 0 17em;
+			display: grid;
+			margin: 0;
+			height: 25em;
 			display: grid;
 			border: solid 1px black;
-			grid-template-columns: auto auto auto;
+			grid-template-columns: 50% 50%;
 		}
 		.grid-item {
 			border: solid 1px black;
-			margin: 2em;
-			height: 15em;
+			margin: 0;
+			min-width: 50%;
+			height: inherit;
+		}
+		.grid-item-container {
+			display: grid;
+			margin: 0;
+			height: 100%;
+			display: grid;
+			border: solid 1px black;
+			grid-template-rows: 50% 50%;
+		}
+		.grid-item-container-item{
+			border: solid 1px black;
+			margin: 0;
+		}
+		.image {
+			background-repeat: no-repeat;
+			background-size: cover;
+			min-width: 100%;
+			max-width: 100%;
+			min-height: 100%;
+			max-height: 100%;
 		}
 		
 		</style>
@@ -101,84 +125,24 @@
 		</div>
 	</div>
 	<div class="wrapper">
-		<div class="filter" x-data="{vegitarian:false,vegan:false,pescetarian:false,Kosher:false,carnivorous:false,gluten:false}">
-
-			<p class="filter_header">Dietary Restrictions</p>
-			<div x-model="filter[0]0">
-				<input type="checkbox" id="checkbox" x-model="filter[0] = filter[0]">Vegitarian</input>
-			</div>
-			<div x-model="filter[1]">
-				<input type="checkbox" id="checkbox" x-model="filter[1] = filter[1]">Vegan</input>
-			</div>
-			<div x-model="filter[2]">
-				<input type="checkbox" id="checkbox" x-model="filter[2] = filter[2]">Pescetarian</input>
-			</div>
-			<div x-model="filter[3]">
-				<input type="checkbox" id="checkbox" x-model="filter[3] = filter[3]">Kosher</input>
-			</div>
-			<div x-model="filter[4]">
-				<input type="checkbox" id="checkbox" x-model="filter[4] = filter[4]">Carnivorous</input>
-			</div>
-			<div x-model="filter[5]">
-				<input type="checkbox" id="checkbox" x-model="filter[5] = filter[5]">Gluten Free</input>
-			</div>
-			
+		<div>
+			<!--<img src="cheesesteak.png">-->
 		</div>
 		<div class="grid-container">
-			<p class="grid-header">Submarines</p>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">1</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">2</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">3</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">4</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">5</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">6</div>
-			</a>
+			<div class="grid-item">
+				<div class="grid-item-container">
+					<div class="grid-item-container-item"></div>
+					<div class="grid-item-container-item">
+						<p>This <b><i>Damn Tasty Cheesesteak</i></b> has been hand crafted with the finest selected ingrediants possible to provide us the maximum profits while maintaining the excellent taste you expect from <i>Torgs Footlongs</i>. Premium black angus thinly sliced thats always grilled with pepperjack cheese from the smelliest of cheese factors to bring you the most pungent cheese available. Then we top it off with our signiture blend of spices, oil, cocaine*, and butter to ensure you come back craving more.</p>
+					</div>
+				</div>
+			</div>
+			<div class="grid-item">
+				<p class="grid-header">#3 - Damn Tasty Cheesesteak</p>
+				<div class="image" style="background-image: url('cheesesteak.png');"></div>
+			</div>
 		</div>
-		<div class="grid-container">
-			<p class="grid-header">Hot Ones</p>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">1</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">2</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">3</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">4</div>
-			</a>
-		</div>
-		<div class="grid-container">
-			<p class="grid-header">Sides</p>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">1</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">2</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">3</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">4</div>
-			</a>
-			<a href="https://brutalnessities.github.io/subs/details/">
-				<div class="grid-item">5</div>
-			</a>
-		</div>
-		<div style="height:10em;">
+		<div style="height:10em;"></div>
 	</div>
 	</body>
 </html>
