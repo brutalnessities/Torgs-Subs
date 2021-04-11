@@ -74,8 +74,9 @@
 			margin-top: -0.75em;
 		}
 		.grid-container {
-			margin: 2.5em 5em 0 17em;
+			margin: 2.5em 5em;
 			display: grid;
+			height: 25em;
 			border: solid 1px black;
 			grid-template-columns: auto auto auto;
 		}
@@ -91,7 +92,7 @@
 	<div class="header" label="header">
 		<p class="self-center">YOUR ORDER</p>
 		<a href="https://brutalnessities.github.io/homepage/">
-			<img src="logo.png" class="mt-3 ml-3 h-3/5">
+			<img src="logo.png" class="mt-3 ml-3 h-3/5" style="visibility: hidden;">
 		</a>
 		<div class="toolbar" label="toolbar">
 			<a class="toolbar_btn" href="https://brutalnessities.github.io/homepage/menu/">MENU</a>
@@ -101,7 +102,9 @@
 		</div>
 	</div>
 	<div class="wrapper">
-		
+		<div class="grid-container">
+			<input type="checkbox">whatever item was bought</input>
+		</div>
 		<div style="height:10em;">
 	</div>
 	</body>
