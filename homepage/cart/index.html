@@ -72,21 +72,15 @@
 		
 		.buttons_group {
 			display: grid;
-			grid-template-columns: 50% 50%;
-			position: absolute;
-			bottom: 0;
-			height: 3em;
-			left: 10%;
-			min-width: 80%;
-			right: 10%;
-			grid-gap: 1em;
-			margin-bottom: 2em;
+			grid-template-columns: 25% 25%;
+			grid-gap: .5em;
+			margin-bottom: .25em;
 		}
 		.buttons {
 			border: solid 1px red;
 			text-align: center;
-			padding-top: .7em;
 			background: aliceblue;
+			border-radius: 100%;
 		}
 		.buttons:hover {
 			background: lightgreen;
@@ -104,31 +98,40 @@
 		.grid-container {
 			display: grid;
 			margin: 0;
-			height: 25em;
-			border: solid 1px black;
-			grid-template-columns: 50% 50%;
-			background: #fed4649c;
-			height: 80%;
-		}
-		.grid-item {
-			border: solid 1px black;
-			margin: 0;
-			min-width: 50%;
-			height: 100%;
-		}
-		.grid-item-container {
-			display: grid;
-			margin: 0;
 			height: 100%;
 			//border: solid 1px black;
-			grid-template-rows: 60% 15% 25%;
+			grid-template-rows: 55% 11% 21%;
 			padding: 1.5em;
+			background: #fed4649c;
+			position: absolute;
+			left: 20%;
+			right: 20%;
 		}
-		.grid-item-container-item{
+		.grid-item{
 			//border: solid 1px black;
 			margin: 0;
 			position: relative;
 		}
+		
+		
+		.grid-h {
+			display: grid;
+			margin: 0;
+			height: 100%;
+			//border: solid 1px black;
+			grid-template-columns: 60% 20% 20%;
+			padding: 1.5em;
+			position: absolute;
+			left: 20%;
+			right: 20%;
+		}
+		.grid-h-item{
+			//border: solid 1px black;
+			margin: 0;
+			position: relative;
+		}
+		
+		
 		.image {
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -138,11 +141,39 @@
 			max-height: 100%;
 		}
 		.total {
-			position: absolute;
 			bottom: 0;
 			left: 10%;
 			font-size: xx-large;
 			font-weight: 700;
+			text-align: center;
+		}
+		
+		.center {
+		
+			border: aliceblue outset 3px;
+			padding: .5em;
+			font-size: 2em;
+			font-weight: bolder;
+			border-radius: 10px;
+			background: #203259;
+			color: white;
+			//https://www.w3schools.com/howto/howto_css_center_button.asp ;
+		    margin: 0;
+		    position: absolute;
+		    top: 5%;
+		    left: 50%;
+		    -ms-transform: translate(-50%, -50%);
+		    transform: translate(-50%, -50%);
+		}
+		
+		.center:hover {
+			background: lightgreen;
+			color: black;
+			border: gray inset 3px;
+		}
+		
+		.line-text{
+			
 		}
 		
 		
@@ -152,7 +183,7 @@
 	<body style="margin: 0;">
 	<div style="position: fixed; width: 100%; height: 100%; z-index: -1; background: url('pattern.png');"></div>
 	<div class="header" label="header">
-		<p class="self-center" style="text-align: center; font-size: xxx-large; font-weight: bolder;">MENU</p>
+		<p style="text-align: center; font-size: xxx-large; font-weight: bolder;">CART</p>
 		<a href="https://brutalnessities.github.io/homepage/">
 			<img src="logo.png" class="mt-3 ml-3 h-3/5" style="position: absolute; top: 0; left: 0;">
 		</a>
@@ -164,29 +195,48 @@
 		</div>
 	</div>
 	<div class="wrapper">
-		<div class="grid-container">
+		<div x-data="{total: [8.75,9.50,2.50,2.00], count: [1,1,1,1], sum: 22.75, item: 4}" class="grid-container">
 			<div class="grid-item">
-				<p class="grid-header">#9 - Damn Tasty Cheesesteak</p>
-				<div x-data="{total: 0, count: 0}" class="grid-item-container">
-					<div class="grid-item-container-item">
-						<div class="total">In Cart: <span x-text="count"></span> . . . . . . . . . . . . . . . . . Total: $<span x-text="total"><span></div>
+				<div class="grid-h" style="padding-left: 2em;">
+					<div class="grid-h-item">
+						<p style="height: 2em;">#3 Damn Tasty Cheesesteak</p>
+						<p style="height: 2em;">#8 The Hens Revenge</p>
+						<p style="height: 2em;">Dank Drank</p>
+						<p style="height: 2em;">Chococookie</p>
 					</div>
-					<div class="grid-item-container-item">
+					<div class="grid-h-item">
+						<p style="height: 2em;"><span x-text="count[0]"></span> . . . $<span x-text="total[0]"><span></p>
+						<p style="height: 2em;"><span x-text="count[1]"></span> . . . $<span x-text="total[1]"><span></p>
+						<p style="height: 2em;"><span x-text="count[2]"></span> . . . $<span x-text="total[2]"><span></p>
+						<p style="height: 2em;"><span x-text="count[3]"></span> . . . $<span x-text="total[3]"><span></p>
+					</div>
+					<div class="grid-h-item">
 						<div class="buttons_group">
-							<a class="buttons" x-on:click="total = total + 8.75, count = count + 1" type="button">Add to Cart</a>
-							<a class="buttons"  href="https://brutalnessities.github.io/homepage/cart">Proceed to Checkout</a>
-						</div>	
-					</div>
-					<div class="grid-item-container-item">
-						<p>This <b><i>Damn Tasty Cheesesteak</i></b> has been hand crafted with the finest selected ingrediants possible to provide us the maximum profits while maintaining the excellent taste you expect from <i>Torgs Footlongs</i>. Premium black angus thinly sliced thats always grilled with pepperjack cheese from the smelliest of cheese factors to bring you the most pungent cheese available. Then we top it off with our signiture blend of spices, oil, cocaine*, and butter to ensure you come back craving more.</p>
+							<a class="buttons" x-on:click="total[0] = total[0] + 8.75, count[0] = count[0] + 1, sum = sum + 8.75, item = item + 1" type="button">+</a>
+							<a class="buttons" x-on:click="total[0] = total[0] - 8.75, count[0] = count[0] - 1, sum = sum - 8.75, item = item - 1" type="button">-</a>
+						</div>
+						<div class="buttons_group">
+							<a class="buttons" x-on:click="total[1] = total[1] + 9.50, count[1] = count[1] + 1, sum = sum + 9.50, item = item + 1" type="button">+</a>
+							<a class="buttons" x-on:click="total[1] = total[1] - 9.50, count[1] = count[1] - 1, sum = sum - 9.50, item = item - 1" type="button">-</a>
+						</div>
+						<div class="buttons_group">
+							<a class="buttons" x-on:click="total[2] = total[2] + 2.50, count[2] = count[2] + 1, sum = sum + 2.50, item = item + 1" type="button">+</a>
+							<a class="buttons" x-on:click="total[2] = total[2] - 2.50, count[2] = count[2] - 1, sum = sum - 2.50, item = item - 1" type="button">-</a>
+						</div>
+						<div class="buttons_group">
+							<a class="buttons" x-on:click="total[3] = total[3] + 2.00, count[3] = count[3] + 1, sum = sum + 2.00, item = item + 1" type="button">+</a>
+							<a class="buttons" x-on:click="total[3] = total[3] - 2.00, count[3] = count[3] - 1, sum = sum - 2.00, item = item - 1" type="button">-</a>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="grid-item">
-				<div class="image" style="background-image: url('cheesesteak.png');"></div>
+				<p class="total">In Cart: <span x-text="item"></span> . . . . . . . . . . . . . . . . . Total: $<span x-text="sum"><span></p>
+			</div>
+			<div class="grid-item">
+				<a class="center"  href="https://brutalnessities.github.io/homepage/cart">Proceed to Checkout</a>	
 			</div>
 		</div>
-		<div style="height:10em;"></div>
 	</div>
 	</body>
 </html>
