@@ -14,37 +14,19 @@
 			height: 13%;
 			width: 100%;
 			background: darkgrey;
-			opacity: 50%;
+			opacity: 95%;
 		}
 		.wrapper {
-			position: absolute;
+			position: fixed;
+			height: 100%;
 			left: 5%;
 			top: 13%;
 			min-width: 90%;
 			right: 5%;
 			border: solid 1px black;
 			z-index: -1;
-			background: cadetblue;
+			background: #203259ed;
 		}
-		
-		
-		.filter_header {
-			font-weight: bolder; 
-			font-size: larger;
-			position: absolute;
-			top: 0;
-			left: 0.2em;
-		}
-		.filter {
-			position: fixed;
-			height: 20em;
-			top: 10em;
-			left: inherit;
-			min-width: 14em;
-			border: solid 1px black;
-			padding: 2em 1em 1em 1em;
-		}
-		
 		
 		.toolbar {
 			display: grid;
@@ -61,6 +43,7 @@
 			border: solid 1px red;
 			text-align: center;
 			padding-top: .7em;
+			background: aliceblue;
 		}
 		.toolbar_btn:hover {
 			background: lightgreen;
@@ -78,6 +61,7 @@
 			display: grid;
 			border: solid 1px black;
 			grid-template-columns: auto auto auto;
+			background: #fed4649c;
 		}
 		.grid-item {
 			border: solid 1px black;
@@ -88,13 +72,14 @@
 		</style>
 	</head>
 	<body style="margin: 0;">
+	<div style="position: fixed; width: 100%; height: 100%; z-index: -1; background: url('pattern.png');"></div>
 	<div class="header" label="header">
-		<p class="self-center">FIND OUR NEAREST LOCATION</p>
+		<p class="self-center" style="text-align: center; font-size: xxx-large; font-weight: bolder;">LOCATIONS</p>
 		<a href="https://brutalnessities.github.io/homepage/">
-			<img src="logo.png" class="mt-3 ml-3 h-3/5">
+			<img src="logo.png" class="mt-3 ml-3 h-3/5" style="position: absolute; top: 0; left: 0;">
 		</a>
 		<div class="toolbar" label="toolbar">
-			<a class="toolbar_btn" href="https://brutalnessities.github.io/homepage/menu/">MENU</a>
+			<a class="toolbar_btn" href="https://brutalnessities.github.io/homepage/">HOME</a>
 			<a class="toolbar_btn" href="https://brutalnessities.github.io/homepage/menu/">ORDER ONLINE</a>
 			<a class="toolbar_btn" href="https://brutalnessities.github.io/homepage/locations/">LOCATIONS</a>
 			<a class="toolbar_btn" href="https://brutalnessities.github.io/homepage/cart">CART</a>
@@ -102,13 +87,13 @@
 	</div>
 	<div class="wrapper">
 		<div style="height:7em;">
-			<p style="text-align: center; font-size: 3em; font-weight: bolder;">Lucky for you, we deliver on flavor and meals.</p>
-			<p style="text-align: center;">It looks like there's a location near you!</p>
+			<p style="text-align: center; font-size: 3em; font-weight: bolder; color: white; -webkit-text-stroke: 2px black;">Lucky for you, we deliver on flavor and meals.</p>
+			<p style="text-align: center; font-size: 2em; color: white; -webkit-text-stroke: 1px black;">It looks like there's a location near you!</p>
 		</div>
-		<img src="location.png" style="margin: auto; height: 30em; border: solid 4px black; border-radius: 30px;">
+		<img src="location.png" style="margin: 1em auto; height: 30em; border: solid 4px black; border-radius: 30px;">
 		<div style="height:10em;">
-			<p style="text-align: center;">69 YoMommas Pl</p>
-			<p style="text-align: center;">Billings, MT 59102</p>
+			<p style="text-align: center; color: white;">69 YoMommas Pl</p>
+			<p style="text-align: center; color: white;">Billings, MT 59102</p>
 		</div>
 	</div>
 	</body>
